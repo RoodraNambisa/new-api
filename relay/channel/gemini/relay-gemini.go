@@ -994,16 +994,12 @@ func GeminiChatStreamHandler(c *gin.Context, info *relaycommon.RelayInfo, resp *
 		}
 	}
 
-	
 	if usage.PromptTokensDetails.TextTokens == 0 && usage.PromptTokensDetails.AudioTokens == 0 && usage.PromptTokensDetails.ImageTokens == 0 {
 		usage.PromptTokensDetails.TextTokens = usage.PromptTokens
 	}
 	if usage.TotalTokens > 0 && usage.CompletionTokens == 0 && usage.TotalTokens >= usage.PromptTokens {
 		usage.CompletionTokens = usage.TotalTokens - usage.PromptTokens
 	}
-
-	usage.PromptTokensDetails.TextTokens = usage.PromptTokens
-	usage.CompletionTokens = usage.TotalTokens - usage.PromptTokens
 
 	if usage.CompletionTokens == 0 {
 		str := responseText.String()
