@@ -9,7 +9,9 @@ import (
 	_ "image/png"
 	"log"
 	"math"
+	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"unicode/utf8"
 
